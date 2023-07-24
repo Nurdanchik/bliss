@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        {% with messages = get_flashed_messages() %}
+        {% if messages and 'email' in messages[0] %}
+        <div class="notification is-danger">
+            {{ messages[0] }}. Go to <a href="{{ url_for('login') }}">login page</a>.
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="full_name">Full Name</label>
+                <input type="text" class="form-control" id="full_name" name="full_name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" class="form-control" id="age" aria-describedby="emailHelp" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                {% with messages = get_flashed_messages() %}
+                {% if messages and 'password' in messages[0] %}
+                <div class="notification is-danger">
+                    {{ messages[0] }}
+                </div>
+                {% endif %}
+                {% endwith %}
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <!-- Add profile picture input -->
+            <div class="form-group">
+                <label for="profile_picture">Profile Picture</label>
+                <input type="file" class="form-control-file" id="profile_picture" name="profile_picture">
+            </div>
+            <button type="submit" class="btn btn-primary" name="create">Sign up</button>
+        </form>
+    </div>
+</body>
+{% endblock %}

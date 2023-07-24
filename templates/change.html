@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Information</title>
+</head>
+<body>
+    <h1>Change Your Information</h1>
+    <form method="post" action="{{ url_for('change_information') }}">
+        <p>
+            <label for="new_username">New Username:</label>
+            <input type="text" name="new_username" required>
+        </p>
+        <p>
+            <label for="new_email">New Gmail:</label>
+            <input type="email" name="new_email" required>
+        </p>
+        <p>
+            <label for="new_age">New Age:</label>
+            <input type="text" name="new_username" required>
+        </p>
+        <p>
+            <label for="new_fullname">New Fullname:</label>
+            <input type="email" name="new_email" required>
+        </p>
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

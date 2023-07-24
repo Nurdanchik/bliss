@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    </div>
+    <h1>Welcome, {{ user.username }}!</h1>
+    <p>Your username: {{ user.username }}</p>
+    <div class="profile">
+        <div class="avatar">
+            {% if user.avatar_filename %}
+                <img src="{{ url_for('static', filename='media/' + user.avatar_filename) }}" alt="Avatar">
+            {% else %}
+                <img src="{{ url_for('static', filename='images/test2.png') }}" alt="Avatar">
+            {% endif %}
+    <p>Gmail: {{ user.email }}</p>
+    <p>Your age: {{ user.age }}</p>
+    <p>Your fullname: {{ user.full_name }}</p>
+    <a href='http://127.0.0.1:5000/changing/'><button type="button" class="btn btn">Change</button></a>
+
+    <h2>Your Posts:</h2>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
